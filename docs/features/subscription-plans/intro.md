@@ -4,65 +4,53 @@ sidebar_position: 1
 
 # Planos de Assinatura
 
-## Bem-vindo 👋
+:::note Status
+🟡 **Em andamento** — feature em desenvolvimento ativo.
+:::
 
-Este é o guia completo para a funcionalidade de **Planos de Assinatura** da plataforma DH (Detail Lab).
+## O Que É
 
-Aqui você encontrará:
-- 📋 Descrição detalhada de cada plano
-- 🏗️ Decisões arquiteturais
-- 🗂️ Schema de banco de dados
-- 🎯 Regras de negócio
-- 💻 Padrões de implementação
+Os **Planos de Assinatura** definem o que cada estética parceira pode fazer na plataforma com base no plano contratado. O objetivo é oferecer uma porta de entrada gratuita (**Free**) com limites claros e um plano completo (**Paid**) que libera tudo.
 
-## Overview Rápido
-
-A plataforma oferece **2 planos**:
-
-| Plano | Custo | Acesso |
-|-------|-------|--------|
-| **Free** | Gratuito | Limitado |
-| **Paid** | A definir | Completo |
-
-### Principais Diferenças
-
-**Free Plan:**
-- ✅ 30 agendamentos por mês
-- ✅ 30 clientes máximo
-- ✅ 10 serviços máximo
-- ❌ Sem meta financeira
-- ❌ Sem relatórios avançados
-- ❌ Sem funcionários
-- ❌ Sem upload de imagens
-
-**Paid Plan:**
-- ✅ Tudo ilimitado
-- ✅ Todos os módulos
-- ✅ Todos os recursos
-
-## Documentação
-
-Escolha por onde começar:
-
-👉 **Quero entender os planos** → Veja [Overview](./overview)
-
-👉 **Quero detalhes do Free** → Veja [Free Plan](./free-plan)
-
-👉 **Quero detalhes do Paid** → Veja [Paid Plan](./paid-plan)
-
-👉 **Quero implementar** → Veja [Decisões Arquiteturais](./decisions/feature-flags)
-
-👉 **Quero o schema do BD** → Veja [Database Schema](./schemas/subscription.md)
-
-## Status da Feature
-
-- [x] Definição de regras de negócio
-- [x] Documentação
-- [ ] Implementação backend
-- [ ] Implementação frontend
-- [ ] Testes
-- [ ] Deploy
+A ideia central: o parceiro consegue começar a usar a plataforma sem custo, sentir valor, e fazer upgrade quando precisar de mais volume ou recursos avançados.
 
 ---
 
-**Última atualização:** 25 de junho de 2026
+## Para Quem É
+
+- **Estéticas que estão começando** — usam o plano Free para experimentar a plataforma sem compromisso.
+- **Estéticas em crescimento** — migram para o Paid quando atingem os limites do Free ou precisam de recursos premium (relatórios, gestão de equipe, automações).
+
+---
+
+## Os Dois Planos
+
+| | Free | Paid |
+|---|------|------|
+| **Custo** | Gratuito | A definir |
+| **Agendamentos** | 30/mês | Ilimitado |
+| **Clientes** | 30 | Ilimitado |
+| **Serviços** | 10 | Ilimitado |
+| **Recursos avançados** | ❌ Bloqueados | ✅ Liberados |
+
+👉 [Veja a comparação completa](./overview.md)
+
+---
+
+## Comece Por Aqui
+
+- 📋 **[Visão Geral](./overview.md)** — comparação completa entre Free e Paid
+- 🎯 **[Casos de Uso](./use-cases.md)** — situações reais de uso, passo a passo
+- 🆓 **[Plano Free](./free-plan.md)** — o que está disponível e os limites
+- 💳 **[Plano Paid](./paid-plan.md)** — tudo que é liberado no upgrade
+
+---
+
+## Status de Desenvolvimento
+
+- [x] Definição de produto
+- [x] Regras de negócio dos planos
+- [x] Documentação de produto e casos de uso
+- [ ] Implementação
+- [ ] Testes
+- [ ] Lançamento

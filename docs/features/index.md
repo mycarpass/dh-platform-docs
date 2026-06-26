@@ -4,71 +4,40 @@ sidebar_position: 0
 
 # Features
 
-## Bem-vindo à Documentação de Features
-
-Aqui você encontra a documentação completa de todas as features da plataforma DH.
+Documentação de produto das features da plataforma DH — **o que cada feature faz** e **como é usada na prática**.
 
 ---
 
-## 📦 Features Documentadas
+## 🚦 Status das Features
 
-### Planos de Assinatura
+Toda feature tem um status que indica em que ponto do ciclo de vida ela está:
 
-Sistema de subscription plans com dois tiers: **Free** e **Paid**.
-
-- ✅ Definição de limitações por plano
-- ✅ Sistema de feature flags
-- ✅ UI patterns padronizados
-- ✅ Database schema
-- ✅ ADRs (Architecture Decision Records)
-
-**[Leia a documentação de Planos →](./subscription-plans/intro.md)**
+| Badge | Status | Significado |
+|-------|--------|-------------|
+| ⚪ | **Planejado** | Definido, mas ainda não iniciado |
+| 🟡 | **Em andamento** | Em desenvolvimento ativo |
+| 🟢 | **Concluído** | Disponível em produção |
 
 ---
 
-## 🚀 Em Desenvolvimento
+## 📦 Catálogo de Features
 
-Mais features serão documentadas em breve:
-- [ ] Autenticação e Autorização
-- [ ] Agendamentos
-- [ ] Relatórios Financeiros
-- [ ] Integração com APIs Externas
+| Feature | Status | Descrição |
+|---------|--------|-----------|
+| [Planos de Assinatura](./subscription-plans/intro.md) | 🟡 Em andamento | Tiers Free e Paid com limites por funcionalidade |
 
----
-
-## 📋 Como Contribuir
-
-Ao documentar uma nova feature:
-
-1. Crie uma pasta em `docs/features/{feature-name}/`
-2. Comece com um `intro.md` (overview)
-3. Inclua especificações detalhadas
-4. Documente decisões arquiteturais (ADRs)
-5. Descreva schemas de banco de dados
-6. Adicione exemplos de código
-7. Atualize os sidebars.js
-
-**Padrão de arquivo:**
-```markdown
----
-sidebar_position: 1
----
-
-# Título
-
-Seu conteúdo...
-```
+> Novas features aparecem aqui conforme entram no roadmap. Veja o [template](https://github.com/mycarpass/dh-platform-docs/blob/main/TEMPLATE.md) para documentar uma nova.
 
 ---
 
-## 🔗 Navegação Rápida
+## 📝 O Que Cada Feature Documenta
 
-| Feature | Status | Link |
-|---------|--------|------|
-| **Planos de Assinatura** | ✅ | [Documentação](./subscription-plans/intro.md) |
-| Autenticação | 🔜 | - |
-| Agendamentos | 🔜 | - |
-| Relatórios | 🔜 | - |
+Cada feature segue o mesmo formato, focado em **produto**:
+
+- **Descrição do produto** — o que a feature resolve e para quem
+- **Casos de uso** — situações reais de uso, passo a passo
+- **Detalhes** — comportamento específico (planos, regras, telas)
+- **Status** — em que fase do desenvolvimento está
 
 ---
 

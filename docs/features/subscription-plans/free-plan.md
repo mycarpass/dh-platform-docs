@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# Free Plan
+# Plano Free
 
 ## Visão Geral
 
@@ -230,27 +230,8 @@ O plano **Free** é gratuito e oferece acesso limitado a funcionalidades essenci
 
 ---
 
-## API
-
-### Endpoints de Validação
-
-```
-GET /api/subscription
-→ Retorna { plan, limits, usage }
-
-POST /api/subscriptions/upgrade
-→ Inicia fluxo de pagamento
-
-GET /api/usage/{feature}
-→ Retorna uso atual de uma feature
-```
-
----
-
 ## Próximos Passos
 
-👉 [Paid Plan](./paid-plan) - O que está disponível no Paid
+👉 [Casos de Uso](./use-cases.md) - Veja os limites em situações reais
 
-👉 [Arquitetura](./decisions/feature-flags) - Como implementar estes bloqueios
-
-👉 [Mensagens](./decisions/error-messages) - Copy padronizado
+👉 [Plano Paid](./paid-plan.md) - O que está disponível no Paid

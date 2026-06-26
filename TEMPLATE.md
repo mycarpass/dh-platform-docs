@@ -1,370 +1,161 @@
-# 📋 Template de Documentação para Novas Features
+# 📋 Template de Documentação de Features
 
-Este é o template padrão que deve ser seguido ao documentar novas features na plataforma DH.
+Template padrão para documentar novas features da plataforma DH. O foco é **produto e casos de uso** — o que a feature faz e como é usada, não como é implementada.
 
 ---
 
-## 🎯 Estrutura Recomendada
-
-Toda feature documentada deve seguir esta estrutura:
+## 🎯 Estrutura
 
 ```
 docs/docs/features/{feature-name}/
-├── intro.md                          # Início rápido (começar aqui)
-├── overview.md                       # Visão geral com diagramas
-├── {detalhes}.md                     # Páginas específicas conforme necessário
-├── decisions/                        # Architecture Decision Records (ADRs)
-│   ├── 001-{decisão1}.md
-│   ├── 002-{decisão2}.md
-│   └── 003-{decisão3}.md
-└── schemas/                          # Database schemas (se aplicável)
-    ├── {tabela1}.md
-    └── {tabela2}.md
+├── intro.md         # Descrição do produto + status (começar aqui)
+├── overview.md      # Visão geral / comparações / matriz
+├── use-cases.md     # Casos de uso reais, passo a passo
+└── {detalhes}.md    # Páginas específicas conforme necessário
 ```
+
+> **Não** documentamos ADRs nem schemas de banco aqui. O foco é produto.
 
 ---
 
-## 📝 Cada Arquivo Deve Ter
+## 🚦 Status da Feature (Obrigatório)
 
-### Frontmatter YAML
+Toda feature **precisa** declarar seu status no topo do `intro.md`, usando um admonition:
 
-Todo arquivo markdown deve começar com:
+```markdown
+:::note Status
+🟡 **Em andamento** — feature em desenvolvimento ativo.
+:::
+```
+
+### Status disponíveis
+
+| Badge | Status | Quando usar |
+|-------|--------|-------------|
+| ⚪ | **Planejado** | Definido, mas ainda não iniciado |
+| 🟡 | **Em andamento** | Em desenvolvimento ativo |
+| 🟢 | **Concluído** | Disponível em produção |
+
+E adicione a feature na tabela do [catálogo de features](docs/features/index.md) com o status correspondente.
+
+---
+
+## 📝 Conteúdo de Cada Arquivo
+
+### 1. `intro.md` — Descrição do Produto
 
 ```markdown
 ---
 sidebar_position: 1
 ---
 
-# Título da Página
-```
+# Nome da Feature
 
-**sidebar_position:** Define a ordem de exibição (1, 2, 3...)
+:::note Status
+🟡 **Em andamento** — em desenvolvimento ativo.
+:::
 
----
+## O Que É
+O que a feature resolve, em 1-2 parágrafos de negócio.
 
-## 📚 Conteúdo Padrão
+## Para Quem É
+Que perfil de usuário se beneficia.
 
-### 1. Intro (`intro.md`)
+## Comece Por Aqui
+- [Visão Geral](./overview.md)
+- [Casos de Uso](./use-cases.md)
 
-**Propósito:** Começar aqui - overview rápido (2-3 min de leitura)
-
-**Seções:**
-- Bem-vindo 👋
-- O que é a feature (1 parágrafo)
-- Começar por aqui (links para próximas páginas)
-- Status da feature (checklist)
-
-**Exemplo:**
-```markdown
----
-sidebar_position: 1
----
-
-# Planos de Assinatura
-
-## Bem-vindo 👋
-
-Documentação completa de Planos de Assinatura.
-
-## O que é?
-
-Sistema que oferece dois tiers: **Free** e **Paid**.
-
-## Começar Por Aqui
-
-👉 [Visão Geral](./overview.md) - Matriz de funcionalidades
-👉 [ADRs](./decisions/001-feature-flags.md) - Decisões técnicas
-
-## Status
-
-- [x] Definição de requisitos
-- [x] Documentação
+## Status de Desenvolvimento
+- [x] Definição de produto
 - [ ] Implementação
-- [ ] Testes
+- [ ] Lançamento
 ```
 
 ---
 
-### 2. Overview (`overview.md`)
+### 2. `overview.md` — Visão Geral
 
-**Propósito:** Visão geral completa com diagramas
-
-**Seções:**
-- O que é
-- Diagrama (Mermaid)
-- Matriz de funcionalidades (tabela)
-- Fluxos principais (diagramas)
-- Casos de uso
-- Próximos passos
-
-**Exemplo:**
-```markdown
----
-sidebar_position: 2
----
-
-# Overview
-
-## O que São Planos de Assinatura?
-
-Explicação com diagramas Mermaid...
-
-## Matriz de Funcionalidades
-
-| Feature | Free | Paid |
-|---------|------|------|
-| ... | ... | ... |
-
-## Fluxos
-
-\`\`\`mermaid
-graph LR
-    A[Free] --> B[Paid]
-\`\`\`
-```
+- Explicação do funcionamento (linguagem de produto)
+- Tabelas comparativas / matriz de funcionalidades
+- Diagrama da jornada do usuário (Mermaid)
+- **Sem** detalhes técnicos de implementação
 
 ---
 
-### 3. Páginas Específicas
+### 3. `use-cases.md` — Casos de Uso
 
-**Exemplo para Planos de Assinatura:**
-- `free-plan.md` - Detalhes do Free
-- `paid-plan.md` - Detalhes do Paid
-
-**Ordem de sidebar_position:** 3, 4, 5...
-
----
-
-### 4. ADRs (Architecture Decision Records)
-
-**Pasta:** `decisions/`
-
-**Padrão:** `{número}-{título-kebab-case}.md`
-
-**Exemplos:**
-- `001-feature-flags.md`
-- `002-ui-blocking-patterns.md`
-- `003-error-messages.md`
-
-**Seções Obrigatórias:**
+O coração da documentação. Cada caso descreve uma **situação real**:
 
 ```markdown
----
-sidebar_position: 1
----
+## Caso N: Título da situação
 
-# ADR 001: {Título}
+**Contexto:** quem é o usuário e o que ele quer.
 
-## Status
-✅ Accepted / ⏳ Pending / ❌ Rejected
+**O que acontece:**
+1. Passo a passo do ponto de vista do usuário
+2. ...
 
-## Contexto
-Por que essa decisão foi necessária?
-
-## Decisão
-Qual foi a decisão?
-
-## Implementação
-Como implementar?
-
-## Alternativas Consideradas
-Quais outras opções foram exploradas?
-
-## Vantagens
-✅ Benefício 1
-✅ Benefício 2
-
-## Desvantagens
-❌ Limitação 1
-❌ Limitação 2
-
-## Relacionado
-[[outro-adr.md|Link para outro ADR]]
-[[../schema/tabela.md|Link para schema]]
+**Resultado:** o que o usuário obtém no final.
 ```
 
----
-
-### 5. Database Schemas
-
-**Pasta:** `schemas/`
-
-**Padrão:** `{tabela-ou-modulo}.md`
-
-**Seções:**
-
-```markdown
----
-sidebar_position: 1
----
-
-# {Nome} Schema
-
-## Tabela: \`{tabela}\`
-
-\`\`\`sql
-CREATE TABLE {tabela} (
-  id BIGINT PRIMARY KEY,
-  -- campos
-);
-\`\`\`
-
-## Campos
-
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-
-## Queries Úteis
-
-\`\`\`sql
-SELECT ... FROM ...
-\`\`\`
-
-## Migrações
-
-\`\`\`sql
--- up
-CREATE TABLE ...
-
--- down
-DROP TABLE ...
-\`\`\`
-```
+Inclua pelo menos 3-5 casos cobrindo os fluxos principais.
 
 ---
 
-## 🔗 Links Entre Documentos
+## 🎨 Estilo
 
-Use sempre caminhos relativos com wiki-style links:
-
-```markdown
-[[outro-arquivo.md|Descrição]]
-[[../decisions/001-feature.md|ADR 001]]
-[[../../features/outro-feature/intro.md|Outra Feature]]
-```
-
----
-
-## 📊 Diagramas
-
-Use Mermaid para diagramas:
-
-```markdown
-\`\`\`mermaid
-graph TD
-    A[Início] --> B{Decisão}
-    B -->|Sim| C[Ação 1]
-    B -->|Não| D[Ação 2]
-\`\`\`
-```
-
----
-
-## 🎨 Estilo e Tom
-
-- ✅ Português (pt-BR) como padrão
-- ✅ Tom técnico mas acessível
-- ✅ Use emojis para visual clarity (⚠️ ⚙️ 📚 🔒)
-- ✅ Exemplos de código quando aplicável
-- ✅ Links para seções relacionadas
-- ❌ Evite jargão sem explicar
-- ❌ Não seja genérico
-- ❌ Não repita informações
+- ✅ Português (pt-BR)
+- ✅ Linguagem de **produto**, não técnica
+- ✅ Foco em o que o usuário vê e faz
+- ✅ Emojis para clareza (🟡 ⚠️ 🔒 ✅ ❌)
+- ✅ Diagramas Mermaid para jornadas
+- ❌ Sem código de implementação, endpoints, schemas ou ADRs
 
 ---
 
 ## 📋 Checklist para Nova Feature
 
-Ao documentar uma feature, verifique:
-
-- [ ] Arquivo `intro.md` criado com overview
-- [ ] Arquivo `overview.md` com diagramas
-- [ ] 2-3 páginas específicas (conforme necessário)
-- [ ] 3+ ADRs em `decisions/`
-- [ ] Schemas em `schemas/` (se aplicável)
+- [ ] `intro.md` com **descrição do produto** e **status**
+- [ ] `overview.md` com visão geral / matriz
+- [ ] `use-cases.md` com 3-5 casos de uso reais
+- [ ] Feature adicionada ao catálogo em `docs/features/index.md` com status
 - [ ] Todos os arquivos têm `sidebar_position`
-- [ ] `sidebars.js` atualizado com referências corretas
-- [ ] Links internos funcionando
-- [ ] Diagramas Mermaid renderizando
-- [ ] Nenhuma quebra de linha estranha
-- [ ] Tom consistente com resto da documentação
+- [ ] `sidebars.js` atualizado
+- [ ] Links internos funcionando (use `./arquivo.md`)
+- [ ] `npm run build` passa sem erros
 
 ---
 
-## 🚀 Adicionando Nova Feature
+## 🚀 Criando uma Nova Feature
 
-### 1. Criar Pasta
 ```bash
-mkdir -p docs/docs/features/{novo-feature}/decisions
-mkdir -p docs/docs/features/{novo-feature}/schemas
-```
+# 1. Estrutura
+mkdir -p docs/docs/features/{nova-feature}
 
-### 2. Criar Arquivos Básicos
-```bash
-touch docs/docs/features/{novo-feature}/intro.md
-touch docs/docs/features/{novo-feature}/overview.md
-touch docs/docs/features/{novo-feature}/decisions/001-{decisão}.md
-touch docs/docs/features/{novo-feature}/schemas/{tabela}.md
-```
+# 2. Arquivos
+touch docs/docs/features/{nova-feature}/intro.md
+touch docs/docs/features/{nova-feature}/overview.md
+touch docs/docs/features/{nova-feature}/use-cases.md
 
-### 3. Atualizar sidebars.js
-```javascript
-{
-  type: 'category',
-  label: 'Nova Feature',
-  items: [
-    'features/{novo-feature}/intro',
-    'features/{novo-feature}/overview',
-    // ... mais itens
-  ],
-}
-```
+# 3. Atualizar sidebars.js e docs/features/index.md
 
-### 4. Testar
-```bash
-npm start
-# Acessar http://localhost:3000
-```
+# 4. Testar
+npm run build && npm start
 
-### 5. Commit
-```bash
-git add docs/docs/features/{novo-feature}
-git commit -m "docs: adicionar documentação de {nova-feature}"
-git push
+# 5. Publicar
+git add . && git commit -m "docs: documentar {nova-feature}" && git push
 ```
 
 ---
 
-## 📖 Exemplo Completo: Planos de Assinatura
+## 📖 Exemplo de Referência
 
-Veja a pasta `docs/docs/features/subscription-plans/` como exemplo de implementação completa deste template:
+A feature **[Planos de Assinatura](docs/features/subscription-plans/intro.md)** segue este template:
 
-- ✅ `intro.md` - Início
-- ✅ `overview.md` - Visão geral
-- ✅ `free-plan.md` - Detalhes Free
-- ✅ `paid-plan.md` - Detalhes Paid
-- ✅ `decisions/` - 3 ADRs
-- ✅ `schemas/` - 2 schemas
-
----
-
-## 💾 Processo de Documentação
-
-1. **Planejamento** - Definir seções e ADRs
-2. **Escrita** - Criar arquivos conforme template
-3. **Revisão** - Verificar links e formatação
-4. **Teste** - `npm start` e validar no browser
-5. **Commit** - Git commit e push
-6. **Atualização** - Manter atualizado conforme código muda
-
----
-
-## 🔄 Manutenção
-
-- Revisar documentação quando feature mudar
-- Atualizar ADRs se decisões mudarem
-- Manter links funcionando
-- Adicionar novos ADRs conforme necessário
+- ✅ `intro.md` — descrição + status 🟡 Em andamento
+- ✅ `overview.md` — matriz Free vs Paid
+- ✅ `use-cases.md` — 6 casos de uso
+- ✅ `free-plan.md` / `paid-plan.md` — detalhes de cada plano
 
 ---
 

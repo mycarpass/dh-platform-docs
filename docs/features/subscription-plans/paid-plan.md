@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# Paid Plan
+# Plano Paid
 
 ## Visão Geral
 
@@ -262,8 +262,6 @@ A: Sim, na próxima renovação.
 
 ## Próximos Passos
 
-👉 [Free Plan](./free-plan) - Detalhes das limitações
+👉 [Plano Free](./free-plan.md) - Detalhes das limitações
 
-👉 [Arquitetura](./decisions/feature-flags) - Como implementar
-
-👉 [Schema](./schemas/subscription) - Estrutura de dados
+👉 [Casos de Uso](./use-cases.md) - Veja a feature em ação
