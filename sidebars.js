@@ -18,6 +18,17 @@ const sidebars = {
             'features/subscription-plans/paid-plan',
           ],
         },
+        {
+          type: 'category',
+          label: 'Autoagendamento',
+          items: [
+            'features/autoagendamento/intro',
+            'features/autoagendamento/overview',
+            'features/autoagendamento/use-cases',
+            'features/autoagendamento/integracoes',
+            'features/autoagendamento/duvidas',
+          ],
+        },
       ],
     },
   ],

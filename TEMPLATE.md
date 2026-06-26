@@ -32,6 +32,7 @@ Toda feature **precisa** declarar seu status no topo do `intro.md`, usando um ad
 
 | Badge | Status | Quando usar |
 |-------|--------|-------------|
+| 💡 | **Ideação** | Em concepção, ainda sendo idealizada |
 | ⚪ | **Planejado** | Definido, mas ainda não iniciado |
 | 🟡 | **Em andamento** | Em desenvolvimento ativo |
 | 🟢 | **Concluído** | Disponível em produção |

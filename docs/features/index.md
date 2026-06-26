@@ -14,6 +14,7 @@ Toda feature tem um status que indica em que ponto do ciclo de vida ela está:
 
 | Badge | Status | Significado |
 |-------|--------|-------------|
+| 💡 | **Ideação** | Em concepção, ainda sendo idealizada |
 | ⚪ | **Planejado** | Definido, mas ainda não iniciado |
 | 🟡 | **Em andamento** | Em desenvolvimento ativo |
 | 🟢 | **Concluído** | Disponível em produção |
@@ -25,6 +26,7 @@ Toda feature tem um status que indica em que ponto do ciclo de vida ela está:
 | Feature | Status | Descrição |
 |---------|--------|-----------|
 | [Planos de Assinatura](./subscription-plans/intro.md) | 🟡 Em andamento | Tiers Free e Paid com limites por funcionalidade |
+| [Autoagendamento](./autoagendamento/intro.md) | 💡 Ideação | Cliente agenda sozinho por um link enviado pelo parceiro |
 
 > Novas features aparecem aqui conforme entram no roadmap. Veja o [template](https://github.com/mycarpass/dh-platform-docs/blob/main/TEMPLATE.md) para documentar uma nova.
 
