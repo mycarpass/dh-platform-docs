@@ -220,5 +220,5 @@ export function UpgradePrompt({ feature, variant = 'inline' }: UpgradePromptProp
 
 ## Relacionado
 
-- [[001-feature-flags.md|ADR 001: Feature Flags]]
-- [[003-error-messages.md|ADR 003: Error Messages]]
+- [ADR 001: Feature Flags](./feature-flags)
+- [ADR 003: Error Messages](./error-messages)

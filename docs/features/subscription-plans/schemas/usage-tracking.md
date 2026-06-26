@@ -280,6 +280,6 @@ SubscriptionUsage::where('subscription_id', $subscriptionId)
 
 ## Próximos Passos
 
-👉 [Subscription Schema](./subscription.md) - Estrutura principal
+👉 [Subscription Schema](./subscription) - Estrutura principal
 
-👉 [Feature Flags](../decisions/001-feature-flags.md) - Como verificar limites no código
+👉 [Feature Flags](../decisions/feature-flags) - Como verificar limites no código

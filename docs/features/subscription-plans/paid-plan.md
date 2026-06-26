@@ -262,8 +262,8 @@ A: Sim, na próxima renovação.
 
 ## Próximos Passos
 
-👉 [Free Plan](./free-plan.md) - Detalhes das limitações
+👉 [Free Plan](./free-plan) - Detalhes das limitações
 
-👉 [Arquitetura](./decisions/feature-flags.md) - Como implementar
+👉 [Arquitetura](./decisions/feature-flags) - Como implementar
 
-👉 [Schema](./schemas/subscription.md) - Estrutura de dados
+👉 [Schema](./schemas/subscription) - Estrutura de dados

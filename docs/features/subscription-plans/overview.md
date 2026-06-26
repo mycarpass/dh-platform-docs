@@ -146,10 +146,10 @@ A verificação de plano é feita em **duas camadas**:
 
 Leia a documentação específica:
 
-👉 [Free Plan Details](./free-plan.md) - Todas as limitações do Free
+👉 [Free Plan Details](./free-plan) - Todas as limitações do Free
 
-👉 [Paid Plan Details](./paid-plan.md) - Tudo que está disponível no Paid
+👉 [Paid Plan Details](./paid-plan) - Tudo que está disponível no Paid
 
-👉 [Arquitetura](./decisions/feature-flags.md) - Como implementar
+👉 [Arquitetura](./decisions/feature-flags) - Como implementar
 
-👉 [Schema](./schemas/subscription.md) - Estrutura de dados
+👉 [Schema](./schemas/subscription) - Estrutura de dados

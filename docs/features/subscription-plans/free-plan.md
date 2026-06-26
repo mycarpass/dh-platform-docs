@@ -249,8 +249,8 @@ GET /api/usage/{feature}
 
 ## Próximos Passos
 
-👉 [Paid Plan](./paid-plan.md) - O que está disponível no Paid
+👉 [Paid Plan](./paid-plan) - O que está disponível no Paid
 
-👉 [Arquitetura](./decisions/feature-flags.md) - Como implementar estes bloqueios
+👉 [Arquitetura](./decisions/feature-flags) - Como implementar estes bloqueios
 
-👉 [Mensagens](./decisions/error-messages.md) - Copy padronizado
+👉 [Mensagens](./decisions/error-messages) - Copy padronizado

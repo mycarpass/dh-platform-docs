@@ -44,13 +44,13 @@ A plataforma oferece **2 planos**:
 
 Escolha por onde começar:
 
-👉 **Quero entender os planos** → Veja [Overview](./overview.md)
+👉 **Quero entender os planos** → Veja [Overview](./overview)
 
-👉 **Quero detalhes do Free** → Veja [Free Plan](./free-plan.md)
+👉 **Quero detalhes do Free** → Veja [Free Plan](./free-plan)
 
-👉 **Quero detalhes do Paid** → Veja [Paid Plan](./paid-plan.md)
+👉 **Quero detalhes do Paid** → Veja [Paid Plan](./paid-plan)
 
-👉 **Quero implementar** → Veja [Decisões Arquiteturais](./decisions/feature-flags.md)
+👉 **Quero implementar** → Veja [Decisões Arquiteturais](./decisions/feature-flags)
 
 👉 **Quero o schema do BD** → Veja [Database Schema](./schemas/subscription.md)
 

@@ -163,5 +163,5 @@ export function NewAgendamentoButton() {
 
 ## Relacionado
 
-- [[002-ui-blocking-patterns.md|ADR 002: UI Blocking Patterns]]
-- [[001-feature-flags.md|ADR 001: Feature Flags]]
+- [ADR 002: UI Blocking Patterns](./ui-blocking-patterns)
+- [ADR 001: Feature Flags](./feature-flags)

@@ -140,5 +140,5 @@ function FinancialPage() {
 
 ## Relacionado
 
-- [[002-ui-blocking-patterns.md|ADR 002: UI Blocking Patterns]]
-- [[schema/subscription.md|Schema: Subscriptions]]
+- [ADR 002: UI Blocking Patterns](./ui-blocking-patterns)
+- [Schema: Subscriptions](../schemas/subscription)
