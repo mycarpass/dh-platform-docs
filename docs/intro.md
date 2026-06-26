@@ -3,9 +3,9 @@ sidebar_position: 1
 slug: /
 ---
 
-# Documentação da Plataforma DH
+# Documentação da Plataforma Detail Lab
 
-Bem-vindo à documentação de produto da plataforma DH (DetailLab).
+Bem-vindo à documentação de produto da plataforma Detail Lab.
 
 Aqui você encontra **o que cada feature faz** e **como é usada na prática** — com o status de desenvolvimento de cada uma.
 

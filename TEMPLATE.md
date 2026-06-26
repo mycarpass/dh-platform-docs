@@ -1,6 +1,6 @@
 # 📋 Template de Documentação de Features
 
-Template padrão para documentar novas features da plataforma DH. O foco é **produto e casos de uso** — o que a feature faz e como é usada, não como é implementada.
+Template padrão para documentar novas features da plataforma Detail Lab. O foco é **produto e casos de uso** — o que a feature faz e como é usada, não como é implementada.
 
 ---
 

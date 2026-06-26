@@ -10,7 +10,7 @@ O fluxo completo do autoagendamento, da chegada do link até o agendamento apare
 
 ## O Link
 
-O parceiro DH compartilha com o cliente um link de autoagendamento. O link identifica **qual parceiro** é o dono daquela página — assim como o link público de captação de leads que já existe hoje (`/public/partners/{slug}`), onde `{slug}` é o identificador do parceiro.
+O parceiro Detail Lab compartilha com o cliente um link de autoagendamento. O link identifica **qual parceiro** é o dono daquela página — assim como o link público de captação de leads que já existe hoje (`/public/partners/{slug}`), onde `{slug}` é o identificador do parceiro.
 
 Todo o agendamento criado por aquele link é vinculado a esse parceiro.
 
@@ -48,7 +48,7 @@ Se não existe, o cliente confirma o nome e o telefone que já digitou e preench
 
 ### 3. Seleção do serviço
 
-O cliente vê os serviços oferecidos pelo parceiro e escolhe o que deseja. Os serviços e **preços variam conforme o porte do veículo** — a precificação no DH é por porte (carroceria).
+O cliente vê os serviços oferecidos pelo parceiro e escolhe o que deseja. Os serviços e **preços variam conforme o porte do veículo** — a precificação no Detail Lab é por porte (carroceria).
 
 > ⚠️ A seleção/definição do porte é o principal ponto em aberto desta feature. Veja [Dúvidas em Aberto](./duvidas.md).
 

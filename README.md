@@ -1,6 +1,6 @@
-# Documentação DH Platform
+# Documentação Detail Lab
 
-Bem-vindo à documentação técnica da plataforma DH (Detail Lab).
+Bem-vindo à documentação técnica da plataforma Detail Lab.
 
 ## 📚 Estrutura
 

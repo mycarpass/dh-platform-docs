@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DH Platform Docs',
-  tagline: 'Documentation for Detail Lab development',
+  title: 'Detail Lab Docs',
+  tagline: 'Documentação de produto do Detail Lab',
   favicon: 'img/favicon.ico',
   url: 'https://mycarpass.github.io',
   baseUrl: '/dh-platform-docs/',
@@ -51,7 +51,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'DH Platform',
+        title: 'Detail Lab',
         items: [
           {
             type: 'docSidebar',
@@ -87,7 +87,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DH Platform. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Detail Lab. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -2,7 +2,7 @@
 
 ## Overview
 
-A plataforma DH (Detail Lab) oferece dois planos de assinatura: **Free** e **Paid**. O plano Free possui limitações por quantidade e bloqueio de funcionalidades, enquanto o plano Paid oferece acesso total a todas as features.
+A plataforma Detail Lab oferece dois planos de assinatura: **Free** e **Paid**. O plano Free possui limitações por quantidade e bloqueio de funcionalidades, enquanto o plano Paid oferece acesso total a todas as features.
 
 ## Planos e Pricing
 

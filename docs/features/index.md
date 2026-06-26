@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Features
 
-Documentação de produto das features da plataforma DH — **o que cada feature faz** e **como é usada na prática**.
+Documentação de produto das features da plataforma Detail Lab — **o que cada feature faz** e **como é usada na prática**.
 
 ---
 

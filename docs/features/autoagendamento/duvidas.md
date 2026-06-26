@@ -10,7 +10,7 @@ Pontos que precisam de decisão antes (ou durante) a implementação. Como a fea
 
 ## 1. Seleção do porte do veículo 🚗
 
-**O problema:** a precificação dos serviços no DH é **por porte** (carroceria). Quando o parceiro cadastra um serviço, ele define o preço para cada porte — ex.: *Lavagem simples* custa R$ 100 para um hatch (P/pequeno) e R$ 120 para um sedan (M/médio).
+**O problema:** a precificação dos serviços no Detail Lab é **por porte** (carroceria). Quando o parceiro cadastra um serviço, ele define o preço para cada porte — ex.: *Lavagem simples* custa R$ 100 para um hatch (P/pequeno) e R$ 120 para um sedan (M/médio).
 
 Para mostrar o **preço correto** ao cliente no autoagendamento, precisamos saber o porte do veículo dele. Mas:
 

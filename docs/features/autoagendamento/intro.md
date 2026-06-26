@@ -12,13 +12,13 @@ sidebar_position: 1
 
 O **Autoagendamento** permite que o cliente final agende um serviço **sozinho**, sem precisar conversar com o parceiro para marcar horário. O parceiro envia um link, o cliente abre, informa seus dados, escolhe o serviço, a data e o horário — e o agendamento cai direto no painel do parceiro para confirmação.
 
-A feature vive dentro do projeto **link** (`reforged-partner-link`), onde já existe o fluxo público de captação de leads dos parceiros DH.
+A feature vive dentro do projeto **link** (`reforged-partner-link`), onde já existe o fluxo público de captação de leads dos parceiros Detail Lab.
 
 ---
 
 ## Para Quem É
 
-- **Parceiros DH** — que querem reduzir o vai-e-volta no WhatsApp para marcar horário. Eles compartilham o link de autoagendamento com seus clientes.
+- **Parceiros Detail Lab** — que querem reduzir o vai-e-volta no WhatsApp para marcar horário. Eles compartilham o link de autoagendamento com seus clientes.
 - **Clientes finais** — que querem agendar um serviço de forma rápida, a qualquer hora, sem depender de resposta imediata do parceiro.
 
 ---
@@ -44,7 +44,7 @@ graph LR
 | Parte | Projeto |
 |-------|---------|
 | Telas do autoagendamento | **link** (`reforged-partner-link`) |
-| Endpoints consumidos | **DH API** (`reforged-api`) |
+| Endpoints consumidos | **Detail Lab API** (`reforged-api`) |
 | Recebimento do agendamento | **painel web** (`admin_dash_web`) |
 
 ---
