@@ -9,11 +9,13 @@ const config = {
   title: 'DH Platform Docs',
   tagline: 'Documentation for Detail Lab development',
   favicon: 'img/favicon.ico',
-  url: 'https://docs.detaillab.com',
-  baseUrl: '/',
+  url: 'https://mycarpass.github.io',
+  baseUrl: '/dh-platform-docs/',
 
-  organizationName: 'driverhub',
+  organizationName: 'mycarpass',
   projectName: 'dh-platform-docs',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
