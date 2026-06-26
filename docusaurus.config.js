@@ -34,15 +34,12 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/driverhub/dh-platform/tree/main/docs/',
+            'https://github.com/mycarpass/dh-platform-docs/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl:
-            'https://github.com/driverhub/dh-platform/tree/main/docs/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -55,10 +52,6 @@ const config = {
     ({
       navbar: {
         title: 'DH Platform',
-        logo: {
-          alt: 'DH Logo',
-          src: 'img/logo.svg',
-        },
         items: [
           {
             type: 'docSidebar',
@@ -66,7 +59,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/driverhub/dh-platform',
+            href: 'https://github.com/mycarpass/dh-platform-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -80,7 +73,7 @@ const config = {
             items: [
               {
                 label: 'Features',
-                to: '/docs/features',
+                to: '/features',
               },
             ],
           },
@@ -89,7 +82,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/driverhub/dh-platform',
+                href: 'https://github.com/mycarpass/dh-platform-docs',
               },
             ],
           },
