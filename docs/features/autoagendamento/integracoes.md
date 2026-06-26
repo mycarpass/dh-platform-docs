@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Dados e Integrações
 
-Endpoints da **Detail Lab API** (`reforged-api`) que o autoagendamento consome ou vai precisar. Esta página é uma referência de produto — o objetivo é deixar claro **de onde vêm os dados** de cada etapa e **o que ainda falta**.
+Endpoints da **Detail Lab API** ([`reforged-api`](https://github.com/mycarpass/reforged-api)) que o autoagendamento consome ou vai precisar. Esta página é uma referência de produto — o objetivo é deixar claro **de onde vêm os dados** de cada etapa e **o que ainda falta**.
 
 ---
 

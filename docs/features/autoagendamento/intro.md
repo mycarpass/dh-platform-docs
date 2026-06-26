@@ -12,7 +12,7 @@ sidebar_position: 1
 
 O **Autoagendamento** permite que o cliente final agende um serviço **sozinho**, sem precisar conversar com o parceiro para marcar horário. O parceiro envia um link, o cliente abre, informa seus dados, escolhe o serviço, a data e o horário — e o agendamento cai direto no painel do parceiro para confirmação.
 
-A feature vive dentro do projeto **link** (`reforged-partner-link`), onde já existe o fluxo público de captação de leads dos parceiros Detail Lab.
+A feature vive dentro do projeto **link** ([`reforged-partner-link`](https://github.com/mycarpass/reforged-partner-link)), onde já existe o fluxo público de captação de leads dos parceiros Detail Lab.
 
 ---
 
@@ -43,9 +43,9 @@ graph LR
 
 | Parte | Projeto |
 |-------|---------|
-| Telas do autoagendamento | **link** (`reforged-partner-link`) |
-| Endpoints consumidos | **Detail Lab API** (`reforged-api`) |
-| Recebimento do agendamento | **painel web** (`admin_dash_web`) |
+| Telas do autoagendamento | **link** ([`reforged-partner-link`](https://github.com/mycarpass/reforged-partner-link)) |
+| Endpoints consumidos | **Detail Lab API** ([`reforged-api`](https://github.com/mycarpass/reforged-api)) |
+| Recebimento do agendamento | **painel web** ([`admin_dash_web`](https://github.com/mycarpass/admin_dash_web)) |
 
 ---
 
