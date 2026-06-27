@@ -5,7 +5,7 @@ sidebar_position: 1
 # Autoagendamento
 
 :::note Status
-🟡 **Em andamento** — as telas do fluxo já foram implementadas no projeto **link**. Faltam os endpoints públicos na API e o novo status de agendamento no painel.
+🟡 **Em andamento** — fluxo implementado no **link** e endpoints públicos + novo status implementados na **API**. Falta o **painel web** exibir o status "aguardando confirmação" e a revisão de privacidade da consulta pública.
 :::
 
 ## O Que É
@@ -64,7 +64,8 @@ graph LR
 - [x] Definição de produto
 - [x] Decisões de MVP para as dúvidas em aberto (ver [Dúvidas](./duvidas.md))
 - [x] Implementação das telas (link) — feature `scheduling`, rota `/{slug}/agendar`
-- [ ] Endpoints públicos na API ([contratos definidos](./integracoes.md))
-- [ ] Novo status de agendamento no painel ("aguardando confirmação")
-- [ ] Privacidade da consulta pública de cliente (LGPD)
-- [ ] Lançamento
+- [x] Endpoints públicos na API ([lookup, services, appointments](./integracoes.md))
+- [x] Novo status `WorkStatus::PENDING_CONFIRMATION` (+ migration)
+- [ ] Exibir o status "aguardando confirmação" no painel web
+- [ ] Revisão de privacidade da consulta pública de cliente (LGPD)
+- [ ] Teste ponta a ponta + lançamento

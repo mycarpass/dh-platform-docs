@@ -57,8 +57,10 @@ GET /public/partners/{slug}/customers/lookup?phone={digitos}
 
 Quando não existe: `{ "data": { "exists": false, "customer": null } }`.
 
-:::warning Gap (backend)
-Esse endpoint **ainda não existe** — é o contrato que o frontend já consome. Deve ser escopado ao `slug` (só retorna clientes daquele parceiro) e retornar o mínimo necessário, por causa da privacidade (ver [Dúvidas](./duvidas.md)).
+:::tip Implementado
+`PublicCustomerLookupController` — escopado ao `slug` (só clientes daquele
+parceiro) e retornando o mínimo necessário. Revisão de privacidade/LGPD ainda em
+aberto (ver [Dúvidas](./duvidas.md)).
 :::
 
 ---
@@ -132,8 +134,8 @@ GET /public/partners/{slug}/services
 
 > `price` em **centavos** (a API trabalha sempre em centavos). O frontend formata para reais.
 
-:::warning Gap (backend)
-Endpoint público ainda não existe — contrato já definido e consumido pelo frontend.
+:::tip Implementado
+`PublicServiceController` — lista os serviços ativos do parceiro com preços por porte.
 :::
 
 ---
@@ -164,9 +166,14 @@ POST /public/partners/{slug}/appointments
 
 **Resposta esperada:** `{ "data": { "id": 99, "whatsapp_redirect_url": "https://wa.me/..." } }`
 
-:::warning Gap (backend)
-1. Endpoint público **ainda não existe** — contrato já consumido pelo frontend.
-2. O status **"aguardando confirmação" não existe** no `WorkStatus` (hoje: `in_queue`, `in_progress`, `finished`, `delivered`, `cancelled`). Precisa ser criado. Ver [Dúvidas](./duvidas.md).
+:::tip Implementado
+`PublicAppointmentController` + `PublicAppointmentService` criam um `Work`
+(status `pending_confirmation`) com um `WorkItem` ligando o serviço escolhido,
+criando/atualizando cliente e veículo conforme necessário. O novo status
+`WorkStatus::PENDING_CONFIRMATION` foi adicionado (com migration que alarga a
+coluna `works.status`).
+
+⚠️ Rode `php artisan migrate` para aplicar a migration da coluna `status`.
 :::
 
 ---
@@ -193,7 +200,22 @@ O frontend já está implementado no projeto **link** ([`reforged-partner-link`]
   - `hooks/use-scheduling-flow.ts` — máquina de estados das etapas
   - `components/steps/` — identificação, veículo, serviço, data/hora, sucesso
 
-As chamadas já estão prontas; assim que os endpoints públicos existirem no backend, o fluxo funciona ponta a ponta.
+As chamadas consomem os endpoints públicos abaixo, já implementados no backend.
+
+## Implementação no backend
+
+Implementado na API ([`reforged-api`](https://github.com/mycarpass/reforged-api)):
+
+- **Rotas públicas** (em `routes/api.php`, middleware `throttle:public`):
+  - `GET /public/partners/{slug}/customers/lookup` → `PublicCustomerLookupController`
+  - `GET /public/partners/{slug}/services` → `PublicServiceController`
+  - `POST /public/partners/{slug}/appointments` → `PublicAppointmentController`
+- **`PublicAppointmentService`** — cria `Work` (status `pending_confirmation`) +
+  `WorkItem`, e faz upsert de cliente/veículo (reaproveitando o padrão do lead).
+- **`WorkStatus::PENDING_CONFIRMATION`** — novo status + migration que alarga a
+  coluna `works.status`.
+
+⚠️ **Rodar `php artisan migrate`** para aplicar a migration da coluna `status`.
 
 ---
 
@@ -203,10 +225,11 @@ As chamadas já estão prontas; assim que os endpoints públicos existirem no ba
 |-------------|----------|---------|
 | Identificar parceiro pelo link | ✅ | ✅ Existe (`/public/partners/{slug}`) |
 | Redirect WhatsApp | ✅ | ✅ Existe (`whatsapp_redirect_url`) |
-| Consultar cliente por telefone (público) | ✅ | ❌ Contrato definido, a implementar |
-| Listar serviços/preços do parceiro (público) | ✅ | ❌ Contrato definido, a implementar |
-| Criar agendamento pelo link | ✅ | ❌ Contrato definido, a implementar |
-| Status "aguardando confirmação" | — | ❌ Não existe (`WorkStatus`) |
+| Consultar cliente por telefone (público) | ✅ | ✅ Implementado |
+| Listar serviços/preços do parceiro (público) | ✅ | ✅ Implementado |
+| Criar agendamento pelo link | ✅ | ✅ Implementado |
+| Status "aguardando confirmação" | — | ✅ `WorkStatus::PENDING_CONFIRMATION` (rodar migration) |
+| Exibir agendamento no painel web | — | ⏳ Pendente (`admin_dash_web`) |
 
 ---
 

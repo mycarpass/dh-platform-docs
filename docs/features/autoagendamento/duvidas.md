@@ -47,6 +47,12 @@ Não há um status para um agendamento que **o cliente criou mas o parceiro aind
 
 **Decisão necessária:** criar um novo status (ex.: `pending_confirmation` / "aguardando confirmação") e definir o que o parceiro pode fazer a partir dele (confirmar → vai para a fila; recusar → cancela; reagendar).
 
+:::tip Implementado (backend)
+Status **`WorkStatus::PENDING_CONFIRMATION`** criado (+ migration). Falta o
+**painel web** (`admin_dash_web`) exibir esse status e oferecer as ações de
+confirmar/recusar/reagendar.
+:::
+
 ---
 
 ## 3. Consulta pública de cliente e privacidade 🔒
@@ -60,6 +66,12 @@ A consulta de cliente por telefone existe, mas é **autenticada**. No autoagenda
 - Vincular a consulta ao `slug` do parceiro (só retorna clientes daquele parceiro).
 - Retornar o **mínimo** necessário (ex.: só confirmar "já é cliente" sem expor veículos antes de uma validação).
 - Validação por código no WhatsApp (mais fricção, mais segurança).
+
+:::caution Parcialmente endereçado
+A consulta já é **escopada ao `slug`** e retorna um payload enxuto. Mas ainda
+expõe nome e veículos de quem tem o link. Falta decidir/implementar uma proteção
+adicional (ex.: validação por código) e a revisão de LGPD.
+:::
 
 ---
 
@@ -100,13 +112,14 @@ como evolução futura.
 | # | Tema | Tipo | Situação |
 |---|------|------|----------|
 | 1 | Porte do veículo / preço | Produto + UX | ✅ Decidido (MVP) |
-| 2 | Status "aguardando confirmação" | Backend | 🔴 Pendente (backend) |
-| 3 | Consulta pública + privacidade | Backend + LGPD | 🔴 Pendente (backend) |
+| 2 | Status "aguardando confirmação" | Backend | ✅ Status criado · ⏳ falta painel |
+| 3 | Consulta pública + privacidade | Backend + LGPD | 🟡 Parcial (escopo por slug) |
 | 4 | Disponibilidade de horários | Produto | ✅ Decidido (MVP) |
 | 5 | Múltiplos veículos | Produto + UX | ✅ Decidido (MVP) |
 
-As decisões de produto (1, 4, 5) já estão **implementadas no frontend**. Os
-itens 2 e 3 dependem do backend e seguem pendentes.
+As decisões de produto (1, 4, 5) e os endpoints/status do backend (2) já estão
+implementados. Resta o **painel web** exibir o novo status e a **revisão de
+privacidade** (3).
 
 ---
 
