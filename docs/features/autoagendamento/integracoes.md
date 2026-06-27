@@ -25,17 +25,40 @@ GET /public/partners/{slug}
 
 Depois que o cliente informa nome e telefone, o sistema precisa verificar se ele já existe na base do parceiro.
 
-Hoje a consulta existe, mas **apenas autenticada** (usada pelo painel web):
+Hoje a consulta existe, mas **apenas autenticada** (`GET /customers?search=`, usada pelo painel web). Para o autoagendamento o frontend consome um **endpoint público escopado ao parceiro** (a implementar no backend):
 
 ```
-GET /customers?search={telefone}
+GET /public/partners/{slug}/customers/lookup?phone={digitos}
 ```
 
-- Busca por nome **ou** telefone
-- Já retorna o cliente **com os veículos** (`with('vehicles')`)
+**Resposta esperada:**
+```json
+{
+  "data": {
+    "exists": true,
+    "customer": {
+      "id": 1,
+      "name": "João",
+      "phone": "5511999999999",
+      "vehicles": [
+        {
+          "id": 10,
+          "manufacturer": "Honda",
+          "model": "Civic",
+          "license_plate": "ABC-1D23",
+          "color": "Preto",
+          "category": "medium"
+        }
+      ]
+    }
+  }
+}
+```
 
-:::warning Gap
-Esse endpoint exige autenticação (`auth:sanctum`). No autoagendamento o cliente **não está logado**, então será preciso uma **versão pública** dessa consulta — provavelmente vinculada ao `slug` do parceiro, no mesmo padrão de `/public/partners/{slug}/...`. Há também uma questão de privacidade a resolver (ver [Dúvidas](./duvidas.md)).
+Quando não existe: `{ "data": { "exists": false, "customer": null } }`.
+
+:::warning Gap (backend)
+Esse endpoint **ainda não existe** — é o contrato que o frontend já consome. Deve ser escopado ao `slug` (só retorna clientes daquele parceiro) e retornar o mínimo necessário, por causa da privacidade (ver [Dúvidas](./duvidas.md)).
 :::
 
 ---
@@ -84,18 +107,65 @@ A lista de serviços do parceiro e seus preços vêm do catálogo. A precificaç
 | `large` | Grande (ex: Fusion, sedans de luxo) |
 | `extra_large` | SUV (ex: Compass, HR-V) |
 
-:::warning Gap
-Não há hoje um endpoint **público** que liste os serviços e preços de um parceiro para o cliente final. Será necessário expor isso (novamente, provavelmente via `slug`).
+O frontend consome (a implementar no backend):
+
+```
+GET /public/partners/{slug}/services
+```
+
+**Resposta esperada:**
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Lavagem simples",
+      "description": "Lavagem externa completa",
+      "prices": [
+        { "vehicle_category": "small", "price": 10000 },
+        { "vehicle_category": "medium", "price": 12000 }
+      ]
+    }
+  ]
+}
+```
+
+> `price` em **centavos** (a API trabalha sempre em centavos). O frontend formata para reais.
+
+:::warning Gap (backend)
+Endpoint público ainda não existe — contrato já definido e consumido pelo frontend.
 :::
 
 ---
 
 ## 5. Criação do agendamento
 
-O agendamento é um `Work`, que já possui o campo `scheduled_at` (data/hora do agendamento).
+O agendamento é um `Work`, que já possui o campo `scheduled_at` (data/hora do agendamento). O frontend envia (a implementar no backend):
 
-:::warning Gap
-1. **Não existe** endpoint público para criar um agendamento a partir do link.
+```
+POST /public/partners/{slug}/appointments
+```
+
+**Corpo enviado:**
+```json
+{
+  "customer_id": 1,
+  "name": "João",
+  "phone": "(11) 99999-9999",
+  "vehicle": { "id": 10 },
+  "service_id": 1,
+  "vehicle_category": "medium",
+  "scheduled_at": "2026-07-01T14:00:00"
+}
+```
+
+> Para cliente novo, `customer_id` é omitido e `vehicle` traz os dados completos
+> (`manufacturer`, `model`, `license_plate`, `color`, `category`) em vez de `id`.
+
+**Resposta esperada:** `{ "data": { "id": 99, "whatsapp_redirect_url": "https://wa.me/..." } }`
+
+:::warning Gap (backend)
+1. Endpoint público **ainda não existe** — contrato já consumido pelo frontend.
 2. O status **"aguardando confirmação" não existe** no `WorkStatus` (hoje: `in_queue`, `in_progress`, `finished`, `delivered`, `cancelled`). Precisa ser criado. Ver [Dúvidas](./duvidas.md).
 :::
 
@@ -113,20 +183,33 @@ Para o autoagendamento, basta ajustar a mensagem para algo como:
 
 ---
 
+## Implementação no link
+
+O frontend já está implementado no projeto **link** ([`reforged-partner-link`](https://github.com/mycarpass/reforged-partner-link)):
+
+- **Rota:** `/{slug}/agendar`
+- **Feature:** `src/features/scheduling/` (espelha o padrão da feature `lead`)
+  - `services/` — consome os três endpoints públicos acima
+  - `hooks/use-scheduling-flow.ts` — máquina de estados das etapas
+  - `components/steps/` — identificação, veículo, serviço, data/hora, sucesso
+
+As chamadas já estão prontas; assim que os endpoints públicos existirem no backend, o fluxo funciona ponta a ponta.
+
+---
+
 ## Resumo: o que já existe x o que falta
 
-| Necessidade | Situação |
-|-------------|----------|
-| Identificar parceiro pelo link | ✅ Existe (`/public/partners/{slug}`) |
-| Criar/encontrar cliente (público) | ✅ Existe (`/public/partners/{slug}/leads`) |
-| Redirect WhatsApp | ✅ Existe (`whatsapp_redirect_url`) |
-| Consultar cliente por telefone (público) | ⚠️ Só autenticado hoje |
-| Listar serviços/preços do parceiro (público) | ❌ Não existe |
-| Criar agendamento pelo link | ❌ Não existe |
-| Status "aguardando confirmação" | ❌ Não existe |
+| Necessidade | Frontend | Backend |
+|-------------|----------|---------|
+| Identificar parceiro pelo link | ✅ | ✅ Existe (`/public/partners/{slug}`) |
+| Redirect WhatsApp | ✅ | ✅ Existe (`whatsapp_redirect_url`) |
+| Consultar cliente por telefone (público) | ✅ | ❌ Contrato definido, a implementar |
+| Listar serviços/preços do parceiro (público) | ✅ | ❌ Contrato definido, a implementar |
+| Criar agendamento pelo link | ✅ | ❌ Contrato definido, a implementar |
+| Status "aguardando confirmação" | — | ❌ Não existe (`WorkStatus`) |
 
 ---
 
 ## Próximos Passos
 
-👉 [Dúvidas em Aberto](./duvidas.md) — decisões necessárias antes da implementação
+👉 [Dúvidas em Aberto](./duvidas.md) — decisões de produto e itens de backend pendentes

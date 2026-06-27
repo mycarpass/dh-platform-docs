@@ -50,11 +50,11 @@ Se não existe, o cliente confirma o nome e o telefone que já digitou e preench
 
 O cliente vê os serviços oferecidos pelo parceiro e escolhe o que deseja. Os serviços e **preços variam conforme o porte do veículo** — a precificação no Detail Lab é por porte (carroceria).
 
-> ⚠️ A seleção/definição do porte é o principal ponto em aberto desta feature. Veja [Dúvidas em Aberto](./duvidas.md).
+> ✅ **Decisão de MVP:** o cliente seleciona o porte num seletor com exemplos de modelos; o preço aparece como referência e o **parceiro confirma o valor final**. Ver [Dúvidas em Aberto](./duvidas.md).
 
 ### 4. Escolha de data e horário
 
-Com o serviço escolhido, o cliente seleciona o **dia** e o **horário** desejados para o agendamento.
+Com o serviço escolhido, o cliente seleciona o **dia** (próximos 14 dias) e o **horário** desejados. É uma solicitação — o parceiro confirma a disponibilidade.
 
 ### 5. Confirmação + volta para o WhatsApp
 

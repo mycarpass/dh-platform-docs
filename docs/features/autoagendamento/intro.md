@@ -5,7 +5,7 @@ sidebar_position: 1
 # Autoagendamento
 
 :::note Status
-💡 **Ideação** — feature em concepção, ainda sendo idealizada. As telas e endpoints ainda não foram implementados.
+🟡 **Em andamento** — as telas do fluxo já foram implementadas no projeto **link**. Faltam os endpoints públicos na API e o novo status de agendamento no painel.
 :::
 
 ## O Que É
@@ -41,11 +41,11 @@ graph LR
 
 ## Onde Vive
 
-| Parte | Projeto |
-|-------|---------|
-| Telas do autoagendamento | **link** ([`reforged-partner-link`](https://github.com/mycarpass/reforged-partner-link)) |
-| Endpoints consumidos | **Detail Lab API** ([`reforged-api`](https://github.com/mycarpass/reforged-api)) |
-| Recebimento do agendamento | **painel web** ([`admin_dash_web`](https://github.com/mycarpass/admin_dash_web)) |
+| Parte | Projeto | Detalhe |
+|-------|---------|---------|
+| Telas do autoagendamento | **link** ([`reforged-partner-link`](https://github.com/mycarpass/reforged-partner-link)) | Rota `/{slug}/agendar` · feature `scheduling` |
+| Endpoints consumidos | **Detail Lab API** ([`reforged-api`](https://github.com/mycarpass/reforged-api)) | Endpoints públicos (a implementar) |
+| Recebimento do agendamento | **painel web** ([`admin_dash_web`](https://github.com/mycarpass/admin_dash_web)) | Status "aguardando confirmação" (a implementar) |
 
 ---
 
@@ -61,9 +61,10 @@ graph LR
 ## Status de Desenvolvimento
 
 - [x] Ideia inicial
-- [ ] Definição de produto (em andamento)
-- [ ] Resolução das dúvidas em aberto
-- [ ] Implementação das telas (link)
-- [ ] Endpoints públicos na API
-- [ ] Novo status de agendamento no painel
+- [x] Definição de produto
+- [x] Decisões de MVP para as dúvidas em aberto (ver [Dúvidas](./duvidas.md))
+- [x] Implementação das telas (link) — feature `scheduling`, rota `/{slug}/agendar`
+- [ ] Endpoints públicos na API ([contratos definidos](./integracoes.md))
+- [ ] Novo status de agendamento no painel ("aguardando confirmação")
+- [ ] Privacidade da consulta pública de cliente (LGPD)
 - [ ] Lançamento

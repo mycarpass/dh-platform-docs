@@ -16,7 +16,7 @@ Aqui você encontra **o que cada feature faz** e **como é usada na prática** �
 | Feature | Status |
 |---------|--------|
 | [Planos de Assinatura](./features/subscription-plans/intro.md) | 🟡 Em andamento |
-| [Autoagendamento](./features/autoagendamento/intro.md) | 💡 Ideação |
+| [Autoagendamento](./features/autoagendamento/intro.md) | 🟡 Em andamento |
 
 Veja o [catálogo completo de features](./features/index.md).
 

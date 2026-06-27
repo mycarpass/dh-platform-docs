@@ -26,7 +26,14 @@ Para mostrar o **preço correto** ao cliente no autoagendamento, precisamos sabe
 - **Confirmação do parceiro:** como o agendamento já chega "aguardando confirmação", o parceiro pode **ajustar o porte/preço** antes de confirmar.
 - **Preço "a confirmar":** exibir o serviço sem preço fechado no autoagendamento e deixar o valor final para a confirmação do parceiro.
 
-> 💡 Recomendação inicial: na primeira versão, **não bloquear o fluxo no porte** — inferir quando possível e deixar o parceiro confirmar o valor final.
+:::tip Decisão de MVP (implementada)
+O cliente **seleciona o porte** num seletor visual com exemplos de modelos
+(Pequeno: Mobi/Kwid/Ka · Médio: Onix/Corolla/Golf · etc.). O preço é mostrado
+como **referência por porte**, e a tela deixa claro que o **parceiro confirma o
+valor final** ao aceitar o agendamento. Isso destrava o fluxo sem comprometer
+a plataforma a um preço errado. Inferência automática pela placa fica como
+evolução futura.
+:::
 
 ---
 
@@ -65,6 +72,13 @@ A documentação prevê o cliente escolher dia e horário, mas:
 - Mostrar disponibilidade real exige expor a agenda do parceiro publicamente.
 - Escolha livre é mais simples, mas pode gerar conflitos resolvidos só na confirmação.
 
+:::tip Decisão de MVP (implementada)
+**Escolha livre**: o cliente escolhe entre os **próximos 14 dias** e uma grade
+de **horários fixos**. A tela avisa que "o horário é uma solicitação" e que o
+parceiro confirma a disponibilidade pelo WhatsApp. Mostrar disponibilidade real
+fica como evolução futura.
+:::
+
 ---
 
 ## 5. Cliente com mais de um veículo 🚙
@@ -73,17 +87,26 @@ Se o cliente já existe e tem **vários veículos**, em qual deles o serviço se
 
 **Decisão necessária:** deixar o cliente escolher o veículo existente ou permitir cadastrar um novo no momento do agendamento.
 
+:::tip Decisão de MVP (implementada)
+Para simplificar, o MVP usa o **primeiro veículo** do cliente quando ele já
+existe. Seleção entre múltiplos veículos (ou cadastro de um novo no fluxo) fica
+como evolução futura.
+:::
+
 ---
 
 ## Resumo das Decisões Pendentes
 
-| # | Tema | Tipo | Bloqueia MVP? |
-|---|------|------|----------------|
-| 1 | Porte do veículo / preço | Produto + UX | Parcialmente |
-| 2 | Status "aguardando confirmação" | Backend | ✅ Sim |
-| 3 | Consulta pública + privacidade | Backend + LGPD | ✅ Sim |
-| 4 | Disponibilidade de horários | Produto | Parcialmente |
-| 5 | Múltiplos veículos | Produto + UX | Não |
+| # | Tema | Tipo | Situação |
+|---|------|------|----------|
+| 1 | Porte do veículo / preço | Produto + UX | ✅ Decidido (MVP) |
+| 2 | Status "aguardando confirmação" | Backend | 🔴 Pendente (backend) |
+| 3 | Consulta pública + privacidade | Backend + LGPD | 🔴 Pendente (backend) |
+| 4 | Disponibilidade de horários | Produto | ✅ Decidido (MVP) |
+| 5 | Múltiplos veículos | Produto + UX | ✅ Decidido (MVP) |
+
+As decisões de produto (1, 4, 5) já estão **implementadas no frontend**. Os
+itens 2 e 3 dependem do backend e seguem pendentes.
 
 ---
 
